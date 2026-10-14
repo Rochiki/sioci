@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player SCORM — Studio SCORM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="jszip.min.js"></script>
+  <script type="module" src="player.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">S</span>Studio SCORM</a>
+    <nav aria-label="Menu utama">
+      <a href="builder.html">Builder</a>
+      <a href="player.html" aria-current="page">Player</a>
+    </nav>
+    <span class="spacer"></span>
+    <button id="btnClose" class="btn-ghost" hidden>Tutup kursus</button>
+    <label class="btn btn-primary" for="fileInput" style="margin:0">Buka file .zip</label>
+    <input id="fileInput" type="file" accept=".zip,application/zip" hidden>
+  </header>
+
+  <!-- Tampilan awal: unggah paket -->
+  <section id="viewUpload">
+    <div id="dropzone" class="dropzone">
+      <h1>Putar paket SCORM</h1>
+      <p class="muted">Seret file <b>.zip</b> SCORM 1.2 atau 2004 ke sini. File diekstrak di browser Anda — tidak diunggah ke server mana pun.</p>
+      <p><label class="btn btn-primary" for="fileInput" style="display:inline-flex">Pilih file .zip</label></p>
+      <div id="importProgress" hidden>
+        <div class="progress"><div></div></div>
+        <small id="importText"></small>
+      </div>
+      <div class="field" style="max-width:320px;margin:20px auto 0;text-align:left">
+        <label for="learnerName">Nama peserta (dikirim ke kursus)</label>
+        <input id="learnerName" type="text" placeholder="Contoh: Rosiana">
+      </div>
+    </div>
+    <div class="library" id="library"></div>
+  </section>
+
+  <!-- Tampilan pemutar -->
+  <section id="viewPlayer" class="player" hidden>
+    <aside class="player-side">
+      <div>
+        <h2 id="courseTitle" style="margin-bottom:4px"></h2>
+        <span id="courseVersion" class="badge"></span>
+      </div>
+      <nav aria-label="Daftar isi"><ul id="toc" class="toc"></ul></nav>
+      <div class="row">
+        <button id="btnPrev">Sebelumnya</button>
+        <button id="btnNext">Berikutnya</button>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span>Status</span><b id="stStatus">–</b></div>
+        <div class="stat"><span>Nilai</span><b id="stScore">–</b></div>
+        <div class="stat"><span>Hasil</span><b id="stSuccess">–</b></div>
+        <div class="stat"><span>Total waktu</span><b id="stTime">–</b></div>
+      </div>
+      <button id="btnReset" class="btn-danger btn-sm">Hapus progres kursus ini</button>
+    </aside>
+    <div class="player-main">
+      <div class="stage">
+        <iframe id="frame" title="Konten kursus" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div id="overlay" class="stage-overlay" hidden>
+          <div>
+            <h2 id="overlayTitle">Sesi selesai</h2>
+            <p class="muted" id="overlayText">Kursus menutup sesinya. Progres sudah tersimpan.</p>
+            <button id="btnRelaunch" class="btn-primary">Buka lagi</button>
+          </div>
+        </div>
+      </div>
+      <details class="debug">
+        <summary>Log komunikasi SCORM (untuk pengembang)</summary>
+        <pre id="log" class="log"></pre>
+      </details>
+    </div>
+  </section>
+</body>
+</html>

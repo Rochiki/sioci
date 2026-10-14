@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Builder SCORM — Studio SCORM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="jszip.min.js"></script>
+  <script type="module" src="builder.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">S</span>Studio SCORM</a>
+    <nav aria-label="Menu utama">
+      <a href="builder.html" aria-current="page">Builder</a>
+      <a href="player.html">Player</a>
+    </nav>
+    <span class="spacer"></span>
+    <small id="saveState" class="muted" aria-live="polite"></small>
+    <button id="btnPreview">Pratinjau</button>
+    <button id="btnBuild" class="btn-primary">Unduh paket SCORM</button>
+  </header>
+
+  <div class="builder">
+    <!-- Kiri: daftar slide -->
+    <aside class="slide-list-wrap" aria-label="Daftar slide">
+      <h2>Slide</h2>
+      <ol id="slideList" class="slide-list"></ol>
+      <div class="row">
+        <button id="addContent" class="btn-sm">+ Materi</button>
+        <button id="addQuiz" class="btn-sm">+ Kuis</button>
+      </div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <h3>Proyek</h3>
+      <div class="row" style="gap:6px">
+        <button id="btnNew" class="btn-sm">Proyek baru</button>
+        <button id="btnSample" class="btn-sm">Muat contoh</button>
+        <button id="btnExport" class="btn-sm">Ekspor proyek</button>
+        <label for="importInput" class="btn btn-sm" style="margin:0;font-size:13px">Impor proyek</label>
+        <input id="importInput" type="file" accept=".json,application/json" hidden>
+      </div>
+      <p class="hint muted" style="font-size:12.5px;margin-top:8px">Proyek tersimpan otomatis di browser ini. Ekspor ke .json untuk cadangan atau dibuka di komputer lain.</p>
+    </aside>
+
+    <!-- Tengah: editor slide aktif -->
+    <main class="editor-wrap">
+      <div id="editor" class="panel"></div>
+    </main>
+
+    <!-- Kanan: pengaturan kursus & suara -->
+    <aside class="settings-wrap" aria-label="Pengaturan">
+      <h2>Kursus</h2>
+      <div class="field"><label for="cTitle">Judul kursus</label><input id="cTitle" type="text"></div>
+      <div class="field"><label for="cDesc">Deskripsi singkat</label><textarea id="cDesc" style="min-height:70px"></textarea></div>
+      <div class="field">
+        <label for="cVersion">Versi SCORM</label>
+        <select id="cVersion">
+          <option value="1.2">SCORM 1.2 — paling kompatibel</option>
+          <option value="2004">SCORM 2004 4th Edition</option>
+        </select>
+        <div class="hint">Ragu? Pilih 1.2. Hampir semua LMS (Moodle, dll.) mendukungnya.</div>
+      </div>
+      <div class="field"><label for="cPass">Nilai lulus kuis (0–100)</label><input id="cPass" type="number" min="0" max="100" step="5"></div>
+      <div class="field">
+        <label><input id="cAutoplay" type="checkbox"> Putar narasi otomatis tiap slide</label>
+        <label><input id="cBrowserVoice" type="checkbox"> Pakai suara browser bila slide tanpa MP3</label>
+      </div>
+
+      <h2 style="margin-top:22px">Suara (Text-to-Speech)</h2>
+      <div class="field">
+        <label for="ttsUrl">Alamat server TTS</label>
+        <div class="row"><input id="ttsUrl" type="url" class="grow" placeholder="http://localhost:8000"><button id="ttsCheck" class="btn-sm">Cek</button></div>
+        <div class="hint" id="ttsStatus">Server ada di folder <b>tts-server/</b>. Lihat README.</div>
+      </div>
+      <div class="field">
+        <label for="ttsVoice">Suara</label>
+        <select id="ttsVoice">
+          <option value="id-ID-GadisNeural">Gadis — Indonesia, perempuan</option>
+          <option value="id-ID-ArdiNeural">Ardi — Indonesia, laki-laki</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ttsRate">Kecepatan: <span id="ttsRateVal">0%</span></label>
+        <input id="ttsRate" type="range" min="-40" max="40" step="5" value="0">
+      </div>
+      <div class="field">
+        <label for="ttsPitch">Nada: <span id="ttsPitchVal">0 Hz</span></label>
+        <input id="ttsPitch" type="range" min="-20" max="20" step="1" value="0">
+      </div>
+      <button id="ttsAll" style="width:100%">Buat suara untuk semua slide</button>
+      <div class="progress" id="ttsAllProg" hidden><div></div></div>
+      <small id="ttsAllText" class="muted"></small>
+    </aside>
+  </div>
+</body>
+</html>

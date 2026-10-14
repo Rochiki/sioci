@@ -1,0 +1,16 @@
+{
+  "name": "studio-scorm",
+  "version": "1.0.0",
+  "description": "Aplikasi web open-source berbahasa Indonesia: SCORM Builder, SCORM Player, dan Text-to-Speech gratis.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx --yes serve -l 5173 .",
+    "test": "node --test *.test.mjs",
+    "build:sample": "node build-sample.mjs"
+  },
+  "devDependencies": {
+    "@xmldom/xmldom": "^0.9.0",
+    "jszip": "^3.10.1"
+  }
+}

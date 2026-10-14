@@ -1,0 +1,58 @@
+/* Tampilan kursus di dalam paket SCORM — tanpa font eksternal agar jalan di LMS offline. */
+:root {
+  --ink: #17202a; --muted: #5b6670; --paper: #ffffff; --soft: #f2f5f1; --line: #d3dad2;
+  --accent: #00704f; --accent-ink: #fff; --accent-soft: #dcefe6; --signal: #f2b705;
+  --good: #1e7d4f; --good-soft: #e1f3e8; --bad: #b3261e; --bad-soft: #fbe3e1;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--ink); background: var(--paper); }
+.app { min-height: 100%; display: flex; flex-direction: column; }
+button {
+  font: inherit; font-weight: 600; padding: 10px 18px; border-radius: 8px; border: 1px solid var(--line);
+  background: #fff; color: var(--ink); cursor: pointer;
+}
+button:hover { border-color: var(--muted); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+
+.start { max-width: 680px; margin: auto; padding: 48px 24px; }
+.start h1 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); line-height: 1.2; margin: 0 0 16px; }
+.start .lead { font-size: 1.1rem; color: var(--muted); }
+.start .meta { color: var(--muted); font-size: 15px; }
+.start-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.note { margin-top: 24px; font-size: 14px; color: var(--muted); background: var(--soft); padding: 10px 12px; border-radius: 8px; }
+
+.bar { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 20px 0; border-bottom: 1px solid var(--line); }
+.bar .course { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar .count { color: var(--muted); font-size: 14px; }
+.track { grid-column: 1 / -1; height: 4px; background: var(--soft); margin: 10px -20px 0; }
+.track div { height: 100%; background: var(--accent); transition: width .25s; }
+
+.slide { flex: 1; width: 100%; max-width: 760px; margin: 0 auto; padding: 28px 24px 40px; outline: none; }
+.slide h2 { font-size: clamp(1.35rem, 3.4vw, 1.8rem); line-height: 1.25; margin: 0 0 16px; }
+.slide figure { margin: 0 0 20px; }
+.slide img { max-width: 100%; height: auto; border-radius: 10px; display: block; }
+.body p { margin: 0 0 1em; }
+.body ul, .body ol { padding-left: 1.3em; margin: 0 0 1em; }
+.body li { margin-bottom: .35em; }
+
+.q { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 10px; margin: 0 0 16px; }
+.q legend { font-weight: 700; padding: 0 6px; }
+.opt { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 8px; margin-bottom: 4px; cursor: pointer; }
+.opt:hover { background: var(--soft); }
+.opt input { margin-top: 6px; width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+.opt.right { background: var(--good-soft); }
+.opt.wrong { background: var(--bad-soft); }
+.feedback { margin: 6px 4px; font-size: 15px; color: var(--muted); }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.msg { color: var(--bad); font-weight: 600; }
+.result { padding: 14px 16px; border-radius: 10px; width: 100%; }
+.result.pass { background: var(--good-soft); }
+.result.fail { background: var(--bad-soft); }
+.result button { margin-left: 8px; }
+
+.nav { position: sticky; bottom: 0; display: flex; justify-content: space-between; gap: 10px; padding: 12px 20px; background: #fff; border-top: 1px solid var(--line); }
+@media (max-width: 520px) { body { font-size: 16px; } .nav button { padding: 10px 12px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -1,0 +1,69 @@
+{
+  "format": "studio-scorm-proyek",
+  "formatVersion": 1,
+  "project": {
+    "id": "contoh_apd01",
+    "title": "Pengenalan Alat Pelindung Diri (APD)",
+    "description": "Kursus singkat 10 menit tentang fungsi, jenis, dan perawatan APD di tempat kerja.",
+    "version": "1.2",
+    "passingScore": 80,
+    "settings": { "autoplay": true, "browserNarration": true },
+    "slides": [
+      {
+        "id": "s_pentingnya",
+        "type": "content",
+        "title": "Mengapa APD penting?",
+        "body": "Alat Pelindung Diri (APD) adalah perlengkapan yang melindungi pekerja dari bahaya yang **masih tersisa** setelah upaya pengendalian lain dilakukan.\n\nDalam hierarki pengendalian risiko, APD berada di urutan terakhir:\n\n1. Eliminasi — hilangkan bahayanya\n2. Substitusi — ganti dengan yang lebih aman\n3. Rekayasa teknik — pasang pengaman, isolasi sumber bahaya\n4. Pengendalian administratif — prosedur, izin kerja, pelatihan\n5. APD — lapisan pertahanan terakhir\n\nArtinya, APD **wajib dipakai**, tetapi tidak boleh menjadi satu-satunya pengaman.",
+        "narration": "",
+        "image": null,
+        "audio": null
+      },
+      {
+        "id": "s_jenis",
+        "type": "content",
+        "title": "Jenis APD dasar",
+        "body": "Pilih APD sesuai bahaya pekerjaan yang tercantum di analisis risiko (JSA/JSEA):\n\n- **Helm keselamatan** — melindungi kepala dari benda jatuh dan benturan\n- **Kacamata atau pelindung wajah** — dari serpihan, percikan bahan kimia, dan gerinda\n- **Pelindung telinga** (earplug/earmuff) — di area bising\n- **Masker atau respirator** — dari debu, asap, dan uap\n- **Sarung tangan** — sesuai jenis bahaya: potong, panas, atau kimia\n- **Sepatu keselamatan** — dari tertimpa, tertusuk, dan tergelincir\n- **Rompi reflektif** — agar terlihat oleh operator kendaraan\n- **Full body harness** — untuk bekerja di ketinggian\n\nDi Indonesia, ketentuan APD diatur dalam Permenakertrans No. PER.08/MEN/VII/2010.",
+        "narration": "",
+        "image": null,
+        "audio": null
+      },
+      {
+        "id": "s_rawat",
+        "type": "content",
+        "title": "Memeriksa dan merawat APD",
+        "body": "APD yang rusak memberi rasa aman palsu. Biasakan langkah berikut:\n\n- Periksa APD **sebelum** dipakai: retak, sobek, tali putus, atau sudah kedaluwarsa\n- Ganti segera bila rusak — laporkan ke atasan atau petugas K3\n- Simpan di tempat bersih dan kering, jauh dari sinar matahari langsung dan bahan kimia\n- Jangan mengubah atau memodifikasi APD\n- Gunakan ukuran yang pas: APD yang longgar atau sempit tidak melindungi dengan baik",
+        "narration": "",
+        "image": null,
+        "audio": null
+      },
+      {
+        "id": "s_kuis",
+        "type": "quiz",
+        "title": "Uji pemahaman",
+        "intro": "Jawab ketiga soal berikut. Nilai lulus 80.",
+        "narration": "",
+        "audio": null,
+        "questions": [
+          {
+            "text": "Dalam hierarki pengendalian risiko, APD berada di urutan…",
+            "options": ["Pertama", "Kedua", "Terakhir", "Tidak termasuk hierarki"],
+            "correct": 2,
+            "feedback": "APD adalah lapisan pertahanan terakhir setelah eliminasi, substitusi, rekayasa, dan pengendalian administratif."
+          },
+          {
+            "text": "Saat memeriksa helm, Anda menemukan retak halus di batok helm. Tindakan yang benar adalah…",
+            "options": ["Tetap dipakai karena retaknya kecil", "Dilapisi selotip lalu dipakai", "Berhenti memakai, laporkan, dan minta pengganti", "Dipakai hanya untuk pekerjaan ringan"],
+            "correct": 2,
+            "feedback": "Helm retak tidak lagi mampu menahan benturan sesuai standar. Segera ganti."
+          },
+          {
+            "text": "APD yang paling tepat untuk pekerjaan di ketinggian adalah…",
+            "options": ["Rompi reflektif", "Full body harness", "Earmuff", "Sarung tangan kimia"],
+            "correct": 1,
+            "feedback": "Full body harness yang terpasang pada titik angkur menahan pekerja bila terjatuh."
+          }
+        ]
+      }
+    ]
+  }
+}

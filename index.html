@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio SCORM — buat & putar e-learning SCORM</title>
+  <meta name="description" content="Aplikasi open-source berbahasa Indonesia untuk membuat paket SCORM 1.2/2004 dengan narasi suara, dan memutar paket SCORM di browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">S</span>Studio SCORM</a>
+    <nav aria-label="Menu utama">
+      <a href="builder.html">Builder</a>
+      <a href="player.html">Player</a>
+    </nav>
+  </header>
+
+  <main class="home">
+    <section class="home-hero">
+      <div>
+        <h1>Tulis materinya, beri suara, bungkus jadi SCORM.</h1>
+        <p class="lead">Buat kursus e-learning berisi teks, gambar, kuis, dan narasi suara natural — lalu unduh sebagai paket .zip yang bisa diunggah ke Moodle atau LMS lain. Sudah punya paket SCORM? Putar langsung di sini.</p>
+        <div class="row" style="margin-top:20px">
+          <a class="btn btn-primary" href="builder.html">Buat kursus</a>
+          <a class="btn" href="player.html">Putar file .zip</a>
+        </div>
+      </div>
+      <figure class="zip-anatomy" aria-label="Isi paket SCORM yang dihasilkan">
+        <div class="zip-name"><span class="badge" aria-hidden="true">zip</span>pengenalan-apd-scorm12.zip</div>
+        <ul>
+          <li class="key"><span>imsmanifest.xml</span><span>daftar isi untuk LMS</span></li>
+          <li><span>index.html</span><span>halaman yang dibuka</span></li>
+          <li><span>assets/scorm-api.js</span><span>lapor nilai &amp; status</span></li>
+          <li><span>assets/course-data.js</span><span>teks, slide, soal</span></li>
+          <li><span>media/slide-02.jpg</span><span>gambar</span></li>
+          <li class="key"><span>media/narasi-01.mp3</span><span>suara dari teks</span></li>
+        </ul>
+      </figure>
+    </section>
+
+    <section class="home-actions" aria-label="Fitur">
+      <div class="panel">
+        <h2>Builder</h2>
+        <p>Susun slide materi dan kuis pilihan ganda. Pilih SCORM 1.2 atau 2004, atur nilai lulus, lalu unduh paketnya.</p>
+      </div>
+      <div class="panel">
+        <h2>Narasi suara</h2>
+        <p>Ubah teks jadi MP3 dengan suara Neural Bahasa Indonesia (Gadis &amp; Ardi) lewat edge-tts — gratis, tanpa API key.</p>
+      </div>
+      <div class="panel">
+        <h2>Player</h2>
+        <p>Ekstrak dan putar paket SCORM di browser, lengkap dengan daftar isi, status, nilai, dan log komunikasi untuk uji sebelum unggah ke LMS.</p>
+      </div>
+    </section>
+    <p class="muted" style="margin-top:32px;font-size:13px">Semua file diproses di browser Anda. Proyek tersimpan di perangkat ini, bukan di server.</p>
+  </main>
+</body>
+</html>
